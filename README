@@ -1,23 +1,24 @@
 mysql_db_utils
 ==============
-MySQL DB Utilities for Meep Freak
+MySQL DB Utilities from Meep Freak (elseano@gmail.com)
 
-This directory contains a number of linux/unix utilities to ease MySQL/Linux administration.
+This repo contains a number of Linux/unix utilities to ease administration.
+Many of the tools expect parameters to be set as variables from within.
+
 
 p - Dumps essential full processlist and show engine innodb status output to the files proc.out and inno.out. p backs up previous versions with a timestamp. 
 
-Sorting the processlist using './p | sort -nr -k 6' will give you a reverse sort of all queries by execution time. 
+    invocation - ./p (you will be prompted for the root mysql password if $PASS is unset)
 
-Grepping inno.out like this 'grep TRANSACTION inno.out' will give you a stack output of all the innodb transaction thread ids. The bottom of stack is the 'oldest' or rather a 'long running' query that may be a blocker.
-
-  invocation - ./p (you will be prompted for the root mysql password if $PASS is unset)
-
+    Pro Tips:
+    Sorting the processlist using './p | sort -nr -k 6' will give you a reverse sort of all queries by execution time. 
+    Grepping inno.out like this 'grep TRANSACTION inno.out' will output of all the innodb transaction thread ids. The bottom of stack is the 'oldest' or rather a 'long running' query that may be a blocker.
 
 
 db_canary_query - Pings a mysql server with the query of your choice. Writes to a log. Alerts if pingtime is over threshold. Signals unexpected swapping or virtual machine resource weather issues.
 
-  invocation example: nohup <path>/db_canary_query & (runs for a week)
-  cron example: 0 0 * * 6 <path>/db_canary_query 
+    invocation example: nohup <path>/db_canary_query & (runs for a week)
+    cron example: 0 0 * * 6 <path>/db_canary_query 
 
 
 
