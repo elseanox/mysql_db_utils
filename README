@@ -31,7 +31,7 @@ eth_to_serverid - concocts a pseudo-unique server id for mysql replication based
 
 long_query_alarm - emails an address of your choice with the worst offending query that is executing longer than LONG_QUERY_TIME
 
-  invoication example: long_query_alarm
+  invocation example: long_query_alarm
 
   returns an email containing: mysql query thread id, execution time, query string
   
