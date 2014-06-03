@@ -8,17 +8,18 @@ Many of the tools expect parameters to be set as variables from within.
 
 p - Dumps essential full processlist and show engine innodb status output to the files proc.out and inno.out. p backs up previous versions with a timestamp. 
 
-    invocation - ./p (you will be prompted for the root mysql password if $PASS is unset)
+  invocation - ./p (you will be prompted for the root mysql password if $PASS is unset)
 
-    Pro Tips:
-    Sorting the processlist using './p | sort -nr -k 6' will give you a reverse sort of all queries by execution time. 
-    Grepping inno.out like this 'grep TRANSACTION inno.out' will output of all the innodb transaction thread ids. The bottom of stack is the 'oldest' or rather a 'long running' query that may be a blocker.
+  Pro Tips:
+  Sorting the processlist using './p | sort -nr -k 6' returns a reverse sort of current queries by exec time. 
+  Grepping inno.out like this 'grep TRANSACTION inno.out' returns all innodb transaction thread ids. The bottom of stack is the 'oldest' or rather a 'long running' query that may be holding a lock.
+
 
 
 db_canary_query - Pings a mysql server with the query of your choice. Writes to a log. Alerts if pingtime is over threshold. Signals unexpected swapping or virtual machine resource weather issues.
 
-    invocation example: nohup <path>/db_canary_query & (runs for a week)
-    cron example: 0 0 * * 6 <path>/db_canary_query 
+  invocation example: nohup <path>/db_canary_query & (runs for a week)
+  cron example: 0 0 * * 6 <path>/db_canary_query 
 
 
 
@@ -46,7 +47,7 @@ schema_size_report - returns the size of all schemas on a mysql instance (omits 
   
   
 
-host_port_ping - checks for the presence of a demon running at host:port reports on fail to an email address, 60 second interval
+host_port_ping - checks for the presence of a daemon running at host:port reports on fail to an email address, 60 second interval
 
   invocation example: ./host_port_pint 10.0.0.2 3306 someone@email.com
   
